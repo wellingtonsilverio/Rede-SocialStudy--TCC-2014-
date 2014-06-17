@@ -259,6 +259,14 @@ if (isset($_POST["upload_thumbnail"]) && strlen($large_photo_exists)>0) {
 		$vLogin = Conect::getConn()->prepare("SELECT * FROM `users` WHERE `usr_email` = ? AND `usr_senha` = ?");
 		$vLogin->execute(array($_SESSION['usr_email'],$_SESSION['usr_senha']));
 		if($vSQL = $vLogin->fetch(PDO::FETCH_ASSOC)){
+			
+			//deleta foto antiga
+			$afilename = $upload_path.$vSQL['usr_image'];
+			if (file_exists($afilename)) {
+				unlink($afilename);
+			}
+			
+			//registra no banco
 			$upSQL = $sql->execute(array($tfilename, $vSQL['usr_id']));
 		
 			if($upSQL){
@@ -268,12 +276,24 @@ if (isset($_POST["upload_thumbnail"]) && strlen($large_photo_exists)>0) {
 				//echo "<meta HTTP-EQUIV='refresh' CONTENT='1;URL=index.php'>";
 			}
 		}
-		//Clear the time stamp session and user file extension
-		$_SESSION['random_key']= "";
-		$_SESSION['user_file_ext']= "";
-		//session_destroy();
 	}
-	
+	//Clear the time stamp session and user file extension
+	$_SESSION['random_key']= "";
+	$_SESSION['user_file_ext']= "";
+	//return
+	header("location: ../index.php");
+	exit(); 
+}
+//voltar para o menu
+if (isset($_POST["upload_voltar"])){
+	$large_image_location = $upload_path.$large_image_prefix.$_SESSION['random_key'].$_SESSION['user_file_ext'];
+	if (file_exists($large_image_location)) {
+		unlink($large_image_location);
+	}
+	//Clear the time stamp session and user file extension
+	$_SESSION['random_key']= "";
+	$_SESSION['user_file_ext']= "";
+	//return
 	header("location: ../index.php");
 	exit(); 
 }
@@ -283,7 +303,9 @@ if (isset($_POST["upload_thumbnail"]) && strlen($large_photo_exists)>0) {
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<meta name="generator" content="WebMotionUK" />
-	<title>Upload and Crop Image</title>
+	<title>Upload and Crop Image</title>    
+	<link href="../css/modern.css" rel="stylesheet">
+	<link href="../css/padrao.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="../javascript/crop/jquery-pack.js"></script>
 	<script type="text/javascript" src="../javascript/crop/jquery.imgareaselect.min.js"></script>
 </head>
@@ -381,9 +403,12 @@ if(strlen($large_photo_exists)>0 && strlen($thumb_photo_exists)>0){
 				<input type="hidden" name="y2" value="" id="y2" />
 				<input type="hidden" name="w" value="" id="w" />
 				<input type="hidden" name="h" value="" id="h" />
-				<input type="submit" name="upload_thumbnail" value="Salvar no perfil" id="save_thumb" />
-			</form>
+				
+                
 		</div>
+        <input type="submit" name="upload_thumbnail" value="Salvar no perfil" id="save_thumb" style="margin:10px;" />
+        <input type="submit" name="upload_voltar" value="Voltar para o perfil" id="reset_thumb" style="margin:10px;" />
+		</form>
 	<hr />
 	<?php 	} ?>
 	<h2>Upload da foto de perfil</h2>

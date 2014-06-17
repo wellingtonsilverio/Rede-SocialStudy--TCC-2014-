@@ -1,6 +1,12 @@
 <?php
 $script = $_SERVER['SCRIPT_NAME'];
 $parametros = $_SERVER['QUERY_STRING'];
+
+//Restrição para Administradores
+$grupID = $_GET['gid'];
+$selectGrupoAdmin =  Conect::getConn()->prepare("select * from `grp_adm` where `gadm_grp` = ? AND `gadm_usr` = ?");
+$selectGrupoAdmin->execute(array($grupID, $usrID));
+if($eAdmin = $selectGrupoAdmin->FETCH(PDO::FETCH_ASSOC)){
 ?><div id="opcoesG">
     <div class="divOpc" id="mdg" onClick="javascript: $('#smdaddadmg').slideToggle(300);">Adicionar Administrador do Grupo</div>
     <section id="smdaddadmg">
@@ -157,3 +163,10 @@ $parametros = $_SERVER['QUERY_STRING'];
     </form>
     </section>
 </div>
+<?php
+}
+else
+{
+	echo "<h1 style='text-align:center;'>Página restrita.</h1>";
+}
+?>

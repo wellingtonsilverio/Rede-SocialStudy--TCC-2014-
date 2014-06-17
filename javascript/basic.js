@@ -11,6 +11,8 @@ jQuery(function ($) {
 			overlayClose:true,
 			//Opacidade do fundo.
 			opacity:80,
+			//Tamanhos
+			minHeight:400,
 			//Cor da Opacidade de fundo
 			overlayCss: {backgroundColor:"#000"},
 			//Animação ao Abrir

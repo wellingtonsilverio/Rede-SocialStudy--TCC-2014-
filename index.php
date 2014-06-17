@@ -57,11 +57,12 @@ if(isset($_GET['opcao'])){
 	if($_GET['opcao'] == 'att'){
 		$prefix = 'rss_';
 		extract($_POST);
-		
-		$up = Conect::getConn()->prepare("UPDATE `users` SET `usr_nome`=?, `usr_sobrenome`=?, `usr_data_n`=?, `usr_escola`=?, `usr_serie`=?, `usr_local`=?, `usr_genero`=? WHERE `usr_id`=?");
-		$update = $up->execute(array($nome,$sobrenome,$data,$escola,$serie,$local,$genero,$vSQL['usr_id']));
-		if($update){
+		$data = $datay."-".$datam."-".$datad." 00:00:00";
+		$att = Conect::getConn()->prepare("UPDATE `users` SET `usr_nome`=?, `usr_sobrenome`=?, `usr_data_n`=?, `usr_escola`=?, `usr_serie`=?, `usr_local`=?, `usr_genero`=? WHERE `usr_id`=?");
+		if($att->execute(array($nome,$sobrenome,$data,$escola,$serie,$local,$genero,$vSQL['usr_id']))){
 			header("Location: index.php");
+			echo "<meta HTTP-EQUIV='refresh' CONTENT='1;URL=index.php'>";
+			exit();
 		}
 	}
 	if($_GET['opcao'] == 'foto'){

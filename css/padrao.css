@@ -351,3 +351,9 @@ h4{
 	border:1px solid #CC1B1E;
 	background:#36BDC8;
 }
+#alterInfos{
+	padding-top:5px;
+}
+#alterInfos input,select{
+	margin-top:3px;
+}

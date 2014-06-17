@@ -135,7 +135,11 @@ onMouseOut="document.getElementById(this.id).src='imagens/partes/perfil.png'"></
     <font color="#000000">
     <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><?php echo $vSQL['usr_data_n'];?></td>
+    <td><?php 
+	
+	echo $vSQL['usr_data_n'][8].$vSQL['usr_data_n'][9]." do ".$vSQL['usr_data_n'][5].$vSQL['usr_data_n'][6]." de ".$vSQL['usr_data_n'][0].$vSQL['usr_data_n'][1].$vSQL['usr_data_n'][2].$vSQL['usr_data_n'][3];
+	
+	?></td>
   </tr>
   <tr>
     <td><?php echo $vSQL['usr_genero'];?></td>
@@ -146,11 +150,11 @@ onMouseOut="document.getElementById(this.id).src='imagens/partes/perfil.png'"></
   <tr>
     <td><?php echo $vSQL['usr_serie'];?></td>
   </tr>
-  <tr>
-    <td><?php if($vSQL['usr_nivel'] == 9){
-		echo 'Administrador';
-	}?></td>
-  </tr>
+  <?php if($vSQL['usr_nivel'] == 9){
+		echo '<tr>
+    <td>Administrador</td>
+  </tr>';
+	}?>
     </table>
     </font>
     </ul>

@@ -32,7 +32,11 @@ while($veriAmigos = $veriAmigo->fetch(PDO::FETCH_ASSOC)){
 			echo "#F3C";
 		}else{
 			echo "#FFF";
-		}?>;"><img src="pags_logon/img/<?php echo $veriUser['usr_image']; ?>" width="140" height="140" /><br /><font color="#fff"><?php echo $veriUser['usr_sobrenome'].", ".$veriUser['usr_nome']; ?></font>
+		}?>;"><img src="pags_logon/img/<?php echo $veriUser['usr_image']; ?>" width="140" height="140" /><br /><font color="#fff"><?php 
+		$nome = $veriUser['usr_sobrenome'].", ".$veriUser['usr_nome'];
+		if(strlen($nome) > 23) $nome = substr($nome,0,20) . '...';
+		echo $nome;
+		 ?></font>
 	</div></a></li>
       </ul></div>
 	<?php
@@ -53,13 +57,17 @@ while($veriAmigosQ = $veriAmigoQ->fetch(PDO::FETCH_ASSOC)){
 	?>
 	
 	  <div id="amigos"><ul>
-	    <li><a href="index.php?uid=<?php echo $veriUserQ['usr_id']; ?>"><div id="caixaAmigo" align="center" style="background-color:<?php if($veriUserQ['usr_genero'] == "Masculino"){
+	    <li><a href="index.php?uid=<?php echo $veriUserQ['usr_id']; ?>"><div id="caixaAmigo" align="center" style="color:#fff; background-color:<?php if($veriUserQ['usr_genero'] == "Masculino"){
 			echo "#09F";
 		}elseif($veriUserQ['usr_genero'] == "Feminino"){
 			echo "#F3C";
 		}else{
 			echo "#FFF";
-		}?>;"><img src="pags_logon/img/<?php echo $veriUserQ['usr_image']; ?>" width="140" height="140" /><br /><?php echo $veriUserQ['usr_sobrenome'].", ".$veriUserQ['usr_nome']; ?>
+		}?>;"><img src="pags_logon/img/<?php echo $veriUserQ['usr_image']; ?>" width="140" height="140" /><br /><?php 
+		$nome = $veriUserQ['usr_sobrenome'].", ".$veriUserQ['usr_nome'];
+		if(strlen($nome) > 23) $nome = substr($nome,0,20) . '...';
+		echo $nome;
+		 ?>
 	</div></a></li>
       </ul></div>
 	<?php

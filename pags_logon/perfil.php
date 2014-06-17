@@ -114,11 +114,33 @@ onMouseOut="document.getElementById(this.id).src='imagens/partes/perfil.png'"></
   <div align="left" id="alinhar">
 	  <div align="right" id="infos">
 		<div align="right" id="info">
-            <h2><?php echo $vSQL['usr_nome'];?></h2><?php echo $vSQL['usr_sobrenome'];?><br><br>Level: <?php if($vSQL['usr_level'] < 100){
+            <h2><?php echo $vSQL['usr_nome'];?></h2><?php echo $vSQL['usr_sobrenome'];?><br><br>Level: <?php 
+			//Dividir Leveis
+			if($vSQL['usr_level'] < 100){
 				echo 1;
 				$valorinicio = 0;
 				$valorfim = 100;
-			}?><br><?php 
+				$tituloR = "Iniciante";
+			}
+			else if(($vSQL['usr_level'] >= 100) && ($vSQL['usr_level'] < 500)){
+				echo 2;
+				$valorinicio = 100;
+				$valorfim = 500;
+				$tituloR = "Novato";
+			}
+			else if(($vSQL['usr_level'] >= 500) && ($vSQL['usr_level'] < 1500)){
+				echo 3;
+				$valorinicio = 500;
+				$valorfim = 1500;
+				$tituloR = "SocialStudy";
+			}
+			else{
+				echo 3;
+				$valorinicio = 1500;
+				$valorfim = 999999999999;
+				$tituloR = "Expert";
+			}
+			?><br><?php 
 			//Porcentagem;
 			$valoratual = $vSQL['usr_level'];
 			$porcentagem = ($valoratual/($valorfim-$valorinicio))*100;
@@ -153,6 +175,10 @@ onMouseOut="document.getElementById(this.id).src='imagens/partes/perfil.png'"></
   <?php if($vSQL['usr_nivel'] == 9){
 		echo '<tr>
     <td>Administrador</td>
+  </tr>';
+	}else{
+		echo '<tr>
+    <td>'.$tituloR.'</td>
   </tr>';
 	}?>
     </table>

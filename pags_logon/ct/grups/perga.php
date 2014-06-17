@@ -27,14 +27,14 @@ if(isset($_POST['perguntar'])){
     <ul class="replies" style="float:left;">
     <li class="bg-color-green">
     <b class="sticker sticker-left sticker-color-green"></b>
-    <div class="avatar"><img src="pags_logon/img/<?php echo $uVer['usr_image'];?>" /></div>
+    <a href="index.php?uid=<?php echo $uVer['usr_id']; ?>"><div class="avatar"><img src="pags_logon/img/<?php echo $uVer['usr_image'];?>" /></div>
     <div class="reply">
     <div class="date"><?php echo $pAgora['pgt_date'];?></div>
     <div class="author"><?php echo $uVer['usr_nome'];?></div>
     <div class="text"><?php echo $pAgora['pgt_perg'];?>
             </div>
     </div>
-    </li>
+    </li></a>
     </ul>
 
 <!-- Antigo -->
@@ -50,13 +50,13 @@ if(isset($_POST['perguntar'])){
                     
     <li class="bg-color-blue">
     <b class="sticker sticker-right sticker-color-blue"></b>
-    <div class="avatar"><img src="pags_logon/img/<?php echo $uRR['usr_image'];?>" /></div>
+    <a href="index.php?uid=<?php echo $uRR['usr_id']; ?>"><div class="avatar"><img src="pags_logon/img/<?php echo $uRR['usr_image'];?>" /></div>
     <div class="reply">
     <div class="date">RESPOSTA</div>
     <div class="author"><?php echo $uRR['usr_nome'];;?></div>
     <div class="text"><?php echo $respostas['res_resp'];?>
             </div>
-    </div>
+    </div></a>
     </li>
                 
 				

@@ -56,6 +56,19 @@ if(isset($_POST['perguntar'])){
     <div class="author"><?php echo $uRR['usr_nome'];;?></div>
     <div class="text"><?php echo $respostas['res_resp'];?>
             </div>
+            <?php
+            if(($respostas['res_usr'] == $usrID) || ($eAdmin = $selectGrupoAdmin->FETCH(PDO::FETCH_ASSOC))){
+				$server = $_SERVER['SERVER_NAME'];
+				$endereco = $_SERVER ['REQUEST_URI'];
+				echo '<div align="right"><a href="http://'.$server.$endereco.'&amp;resExcluir='.$respostas['res_id'].'#SavePoint" style="color:#FFFFFF; font-size:12px;">&emsp;Excluir</a></div>';
+			}
+			
+			?>
+            
+<div align="right"><a href="<?php $server = $_SERVER['SERVER_NAME'];
+$endereco = $_SERVER ['REQUEST_URI'];
+
+echo "http://" . $server . $endereco;?>&amp;denunciar=resp<?php echo $_GET['pid'];?>&amp;dpid=<?php echo $respostas['res_id'];?>#SavePoint" style="color:#FFFFFF; font-size:12px;">&emsp;Denunciar</a></div>
     </div></a>
     </li>
                 

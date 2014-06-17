@@ -1,5 +1,11 @@
 <div style="width:900px;">
 <?php
+//Restringir Pag
+if(isset($_GET['gid'])){
+	$grupID = $_GET['gid'];
+	$selectGrupoAdmin =  Conect::getConn()->prepare("select * from `grp_adm` where `gadm_grp` = ? AND `gadm_usr` = ?");
+	$selectGrupoAdmin->execute(array($grupID, $usrID));
+}
 //Pagina Restrita kkkk
 if(isset($_GET['res'])){
 	if(isset($_POST['resSenha']) && $_POST['resSenha'] == "NaoVouFalaraSenha"){

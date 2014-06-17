@@ -90,7 +90,7 @@ if(isset($_FILES['mdfoto'])){
                           <div align="left"><a href="<?php $server = $_SERVER['SERVER_NAME'];
 $endereco = $_SERVER ['REQUEST_URI'];
 
-echo "http://" . $server . $endereco;?>&denunciar=perg&amp;dpid=<?php echo $pVez['pgt_id'];?>#SavePoint">&emsp;Denunciar</a></div>
+echo "http://" . $server . $endereco;?>&amp;denunciar=perg&amp;dpid=<?php echo $pVez['pgt_id'];?>#SavePoint">&emsp;Denunciar</a></div>
                         </div></div>  
         	</tr>
       	  </table></a>
@@ -101,6 +101,8 @@ echo "http://" . $server . $endereco;?>&denunciar=perg&amp;dpid=<?php echo $pVez
           <div id="resp-respo" name="resp-respo"><a name="SavePoint"></a><?php 
 		  	if(isset($_GET['denunciar'])){
 				include('/denunciar.php'); 
+		  	}else if(isset($_GET['resExcluir'])){
+				include('/resexcluir.php'); 
 		  	}else if(isset($_GET['pid'])){
 				include('/perga.php');  
 			}else{

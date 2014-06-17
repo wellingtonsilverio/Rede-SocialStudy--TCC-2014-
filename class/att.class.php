@@ -43,5 +43,6 @@ VALUES (
 		$remExp = Conect::getConn()->prepare("UPDATE `rss`.`users` SET `usr_level` = `usr_level` - '3' WHERE `users`.`usr_id` = ?");
 		$remExp->execute(array($myID));
 	}
+	
 }
 ?>

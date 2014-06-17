@@ -325,7 +325,7 @@ h4{
 	border:none;
 	border-radius:5px;
 }
-#opcoesG input{
+#opcoesG input,select{
 	border:none;
 	padding:5px;
 	border-radius:5px;
@@ -345,7 +345,7 @@ h4{
 	padding:5px;
 	border-radius:5px;
 }
-#opcoesG div{
+.divOpc{
 	margin:5px;
 	padding:15px 0 15px 20px;
 	border:1px solid #CC1B1E;

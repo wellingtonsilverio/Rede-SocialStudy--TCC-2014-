@@ -1,11 +1,5 @@
 <div style="width:900px;">
 <?php
-//Verificar se esta logado
-if(!isset($_SESSION['usr_logado'])){
-	header("Location: login.php");
-}
-?>
-<?php
 //Pagina Restrita kkkk
 if(isset($_GET['res'])){
 	if(isset($_POST['resSenha']) && $_POST['resSenha'] == "NaoVouFalaraSenha"){
@@ -208,3 +202,41 @@ if($grupoP){
 }
 	?>
 	</div>
+<?php
+if(isset($_GET['addadm'])){
+	$gid = $_GET['gid'];
+	$uid = $_GET['addadm'];
+	$verificarExiste = Conect::getConn()->prepare("select * from `grp_adm` where `gadm_grp` = ? AND `gadm_usr` = ?");
+	$verificarExiste->execute(array($gid, $uid));
+	if($ve = $verificarExiste->FETCH(PDO::FETCH_ASSOC));
+	else{
+		$addAdmin = Conect::getConn()->prepare("INSERT INTO `grp_adm` (`gadm_id`, `gadm_grp`, `gadm_usr`) VALUES (NULL, ?, ?)");
+		$addAdmin->execute(array($gid, $uid));
+	}
+	//header("location: index.php?p=grupo&amp;gid=".$_GET['gid']);
+	echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php?p=grupo&amp;gid=".$_GET['gid']."'>";
+	//exit();
+}
+if(isset($_GET['remadm'])){
+	$gid = $_GET['gid'];
+	$uid = $_GET['remadm'];
+	$delete = Conect::getConn()->prepare("DELETE FROM `grp_adm` where `gadm_grp` = ? AND `gadm_usr` = ?");
+	$delete->execute(array($gid, $uid));
+	echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php?p=grupo&amp;gid=".$_GET['gid']."'>";
+	
+}
+if(isset($_POST['seleCateg'])){
+	$gid = $_GET['gid'];
+	$cid = $_POST['seleCateg'];
+	$update = Conect::getConn()->prepare("UPDATE `grups` SET `grp_cat` = ? where `grp_id` = ?");
+	$update->execute(array($cid, $gid));
+	echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php?p=grupo&amp;gid=".$_GET['gid']."'>";
+	
+}
+?>
+<?php
+//Verificar se esta logado
+if(!isset($_SESSION['usr_logado'])){
+	header("Location: login.php");
+}
+?>

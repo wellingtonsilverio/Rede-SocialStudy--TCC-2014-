@@ -18,7 +18,12 @@
 			echo "#F3C";
 		}else{
 			echo "#FFF";
-		}?>;"><img src="pags_logon/img/<?php echo $partUsr['usr_image']; ?>" width="140" height="140" /><br /><font color="#000000"><?php echo $partUsr['usr_sobrenome'].", ".$partUsr['usr_nome']; ?></font>
+		}?>;"><img src="pags_logon/img/<?php echo $partUsr['usr_image']; ?>" width="140" height="140" /><br /><font color="#000000"><?php 
+		
+		$nome = $partUsr['usr_sobrenome'].", ".$partUsr['usr_nome'];
+		if(strlen($nome) > 23) $nome = substr($nome,0,20) . '...';
+		echo $nome;
+		 ?></font>
 	</div></a></li>
       </ul></div>
 			<?php

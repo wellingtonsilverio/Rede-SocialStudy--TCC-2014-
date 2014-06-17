@@ -7,10 +7,10 @@ if(isset($_GET['dpid'])){
 	
 	$inserirD = Conect::getConn()->prepare("INSERT INTO `rss`.`denuncia` (`dnc_id`, `dnc_de`, `dnc_oque`, `dnc_v`, `dnc_onde`) VALUES (NULL, ?, ?, ?, ?)");
 	if($inserirD->execute(array($uid,$pid,$val,$den))){
-		?><script type="text/javascript" language="javascript">alert("Avisaremos em seu e-mail a resposta da equipe.");</script><?php
+		echo '<script type="text/javascript" language="javascript">alert("Avisaremos em seu e-mail a resposta da equipe.");</script>';
 		
 	}else{
-		?><script type="text/javascript" language="javascript">alert("Erro.");</script><?php
+		echo '<script type="text/javascript" language="javascript">alert("Erro.");</script>';
 		
 	}
 		

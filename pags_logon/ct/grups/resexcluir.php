@@ -13,8 +13,12 @@ if(isset($_GET['resExcluir'])){
 	$deletResp = Conect::getConn()->prepare("DELETE FROM `responder` WHERE `res_id` = ?");
 	if($deletResp->execute(array($rid))){		
 		echo '<script type="text/javascript" language="javascript">alert("Resposta excluida.");</script>';
+		$url = "?p=grupo&gid=".$_GET['gid'];
+		echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php".$url."'>";
 	}else{
 		echo '<script type="text/javascript" language="javascript">alert("Erro.");</script>';
+		$url = "?p=grupo&gid=".$_GET['gid'];
+		echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php".$url."'>";
 	}
 		
 }

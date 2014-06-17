@@ -87,6 +87,13 @@ if(isset($_FILES['mdfoto'])){
 				
 				
 							echo $resP->rowCount(); ?></div>
+                            <?php
+            if(($pVez['pgt_usr'] == $usrID) || ($eAdmin = $selectGrupoAdmin->FETCH(PDO::FETCH_ASSOC))){
+				$server = $_SERVER['SERVER_NAME'];
+				$endereco = $_SERVER ['REQUEST_URI'];
+				echo '<div align="left" style="margin-top:-20px; margin-left:3px;"><a href="http://'.$server.$endereco.'&amp;perExcluir='.$pVez['pgt_id'].'#SavePoint" style="color:#FFFFFF; font-size:12px;">&emsp;Excluir</a></div>';
+			}			
+			?>
                           <div align="left"><a href="<?php $server = $_SERVER['SERVER_NAME'];
 $endereco = $_SERVER ['REQUEST_URI'];
 
@@ -101,6 +108,8 @@ echo "http://" . $server . $endereco;?>&amp;denunciar=perg&amp;dpid=<?php echo $
           <div id="resp-respo" name="resp-respo"><a name="SavePoint"></a><?php 
 		  	if(isset($_GET['denunciar'])){
 				include('/denunciar.php'); 
+		  	}else if(isset($_GET['perExcluir'])){
+				include('/perexcluir.php'); 
 		  	}else if(isset($_GET['resExcluir'])){
 				include('/resexcluir.php'); 
 		  	}else if(isset($_GET['pid'])){

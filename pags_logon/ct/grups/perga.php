@@ -61,8 +61,7 @@ if(isset($_POST['perguntar'])){
 				$server = $_SERVER['SERVER_NAME'];
 				$endereco = $_SERVER ['REQUEST_URI'];
 				echo '<div align="right"><a href="http://'.$server.$endereco.'&amp;resExcluir='.$respostas['res_id'].'#SavePoint" style="color:#FFFFFF; font-size:12px;">&emsp;Excluir</a></div>';
-			}
-			
+			}			
 			?>
             
 <div align="right"><a href="<?php $server = $_SERVER['SERVER_NAME'];

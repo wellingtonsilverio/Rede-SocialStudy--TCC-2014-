@@ -1,0 +1,353 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face{font-family:"SSStandard";src:url('ss-standard.eot');src:url('ss-standard.eot?#iefix') format("embedded-opentype"),url('ss-standard.woff') format("woff"),url('ss-standard.ttf') format("truetype"),url('ss-standard.svg#SSStandard') format("svg");font-weight:normal;font-style:normal}.ss-icon{font-family:"SSStandard","SSSocial";font-style:normal;font-weight:normal;text-decoration:none;text-rendering:optimizeLegibility;white-space:nowrap;-webkit-font-feature-settings:"liga";-moz-font-feature-settings:liga=1;-moz-font-feature-settings:"liga";-ms-font-feature-settings:liga 1;-o-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased}
+
+body {
+	margin:0px;
+	margin-top: 80px;
+	background:url(../imagens/partes/bg.png) repeat;
+	background-color:#52b5f2;
+}
+* {
+	font-family: "Times New Roman", Times, serif;
+    font: inherit;
+    font-size: 14px;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.55);
+}
+
+/*imagem cadastro*/
+#cadasdra{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-150px;
+	margin-top:-175px;
+	}
+
+/*fim imagem cadastro*/
+
+.campo {
+	width:355px;
+	height:42px;
+	background:none;
+	border:hidden;
+	color: #999;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-shadow: 0px 0px 0px;
+	font-size:18px;
+	outline: 0;
+}
+.botao {
+	width:69px;
+	height:30px;
+	margin-right: 49px;
+	background:none;
+	border:hidden;
+	cursor: pointer;
+	outline: 0;
+}
+#central{
+	width:100%;
+	height:380px;
+	z-index:1;
+	padding-top:20px;
+}
+#toplogo{
+	width:100%;
+	height:100px;
+	z-index:1;
+}
+#faixa{
+	background-color:#2e75b7;
+	width:100%;
+	height:3px;
+	z-index:1;
+}
+#infos{
+	background-color:#000F00;
+	opacity:0.9;
+	width:400px;
+	height:200px;
+	z-index:2;
+	padding:10px 10px 10px 10px;
+	color:#FFF;
+	text-shadow:#333;
+}
+#infos h2{
+	color:#FFF;
+	text-shadow:#333;
+}
+#info{
+	opacity:1;
+}
+#alinhar{
+	width:1200px;
+}
+#photo{
+	padding-top:155px;
+	width:180px;
+	height:180px;
+	background-color:#000;
+	z-index:3;
+}
+#photod {
+	position:absolute;
+	width:180px;
+	height:25px;
+}
+#photod:hover {
+	position:absolute;
+	width:180px;
+	height:25px;
+	background-color:#000;
+}
+#info {
+	position:absolute;
+	width:195px;
+	height:180px;
+	z-index:3;
+}
+#menu {
+	position:absolute;
+	margin-left:60%;
+	margin-top:80px;
+	z-index:3;
+}
+#menuUser {
+	z-index:2;
+	padding-right:60px;
+	padding-top:70px;
+}
+#logo {
+	padding: 0px 60px 0px;
+	height:13px;
+	z-index:99999;
+}
+/*
+ * SimpleModal Basic Modal Dialog
+ * http://simplemodal.com
+ *
+ * Copyright (c) 2013 Eric Martin - http://ericmmartin.com
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ */
+#basic-modal-content {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000;}
+
+/* Container */
+#simplemodal-container {height:360px; width:600px; color:#bbb; background-color:#333; border:4px solid #444; padding:12px;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a {color:#ddd;}
+#simplemodal-container a.modalCloseImg {background:url(../imagens/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#simplemodal-container h3 {color:#84b8d9;}
+/*
+ * SimpleModal Basic Modal Dialog
+ * http://simplemodal.com
+ *
+ * Copyright (c) 2013 Eric Martin - http://ericmmartin.com
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ */
+#att{
+	width:1200px;
+}
+#foto{
+}
+#addamg {
+	margin:5px 250px;
+	padding:3px;
+	padding-left:8px;
+	padding-right:8px;
+	opacity: 0.5;
+	background-color:#000;
+	width:130px;
+	height:30px;
+	color:#FFF;
+	text-shadow: none;
+    text-shadow: none;
+}
+#caixaAmigo{
+	alignment-adjust:baseline;
+	alignment-baseline:baseline;
+	padding: 5px;
+	width:150px;
+	height:180px;
+}
+#amigos ul{
+	list-style:none;
+	float:left;
+}
+#amigos ul li{
+	display:inline;
+	padding:5px;
+}
+#espacoMenu{
+	margin-left:100px;
+}
+#divGrupo{
+	position:relative;
+	float:left;
+	background-color:#FFF;
+	width:150px;
+	height:210px;
+	padding:5px;
+	margin:3px;
+}
+#tabela tr td{
+	border:none;
+	padding:0px;
+}
+#imageGrupo{
+	padding:5px;
+	background-color:#000;
+	float:right;
+	border-radius:4px;
+}
+#botaoS{
+	padding-left:250px;
+	padding-top:5px;
+}
+#botaoS input{
+	background-color:#030;
+}
+#Perguntar textarea.perguntar{
+	width:750px;
+	height:40px;
+	padding:3px;
+	/**********/
+	
+    display: block;
+    border: 0px none;
+    border-radius: 3px 3px 3px 3px;
+    padding: 10px 15px;
+    resize: none;
+    resize: none;
+    -moz-box-sizing: border-box;
+}/*
+#Perguntar textarea.perguntar:focus,
+#Perguntar textarea.perguntar:hover{
+	height:130px;
+}*/
+#Perguntar input.submit{
+	height:34px;
+	position:relative;
+	float:right;
+	margin-top:-37px;
+	margin-right:28px;
+    border: 0px none;
+    border-radius: 3px 3px 3px 3px;
+	background:#090;
+	color:#FFF;
+    resize: none;
+    -moz-box-sizing: border-box;
+}
+
+
+#responder textarea.perguntar{
+	padding:3px;
+	/**********/
+	
+    display: block;
+    border: 0px none;
+    border-radius: 3px 3px 3px 3px;
+    padding: 10px 15px;
+    resize: none;
+    -moz-box-sizing: border-box;
+}/*
+#responder textarea.perguntar:focus{
+	height:130px;
+}*/
+#responder input.submit{
+	height:35px;
+	position:relative;
+	float:right;
+	margin-top:-38px;
+	margin-right:57px;
+    border: 0px none;
+    border-radius: 3px 3px 3px 3px;
+	background:#090;
+	color:#FFF;
+    resize: none;
+    -moz-box-sizing: border-box;
+}
+.icon{
+	position:relative;
+	float:left;
+}
+#conteudor{
+	margin-left:55px;
+}
+#resp-resp{
+	background:#3F3;
+	border-radius:4px;
+	padding:10px;
+}
+#res-resp{
+	padding:10px;
+	border-radius:8px;
+	width:350px;
+	background:#030;
+	color:#FFF;
+}
+#res-resp span{
+	color:#F00;
+	font-size:24px;
+}
+#login{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-300px;
+	margin-top:-150px;
+}
+.footer{
+	position:fixed;
+	bottom:2px;;
+	margin:0 auto;
+}
+a img{
+	border:0;
+}
+h4{
+	position:absolute;
+	margin-top:-9px;
+	margin-left:25px;
+}
+#responder{
+	width:530px;
+	padding:5px;
+	border:none;
+	border-radius:5px;
+}
+#opcoesG input{
+	border:none;
+	padding:5px;
+	border-radius:5px;
+	width:90%;
+}
+#opcoesG section{
+	margin:10px;
+	padding:10px;
+	margin-top:0;
+	padding-top:0;
+	display:none;
+}
+#opcoesG section textarea{
+	width:100%;
+	height:200px;
+	border:none;
+	padding:5px;
+	border-radius:5px;
+}
+#opcoesG div{
+	margin:5px;
+	padding:15px 0 15px 20px;
+	border:1px solid #CC1B1E;
+	background:#36BDC8;
+}

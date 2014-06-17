@@ -17,41 +17,6 @@ if(!isset($_SESSION['usr_logado'])){
 }
 
 ?>
-<?php
-if(isset($_GET['opcao'])){
-	if($_GET['opcao'] == 'att'){
-		$prefix = 'rss_';
-		extract($_POST);
-		
-		$up = Conect::getConn()->prepare("UPDATE `users` SET `usr_nome`=?, `usr_sobrenome`=?, `usr_data_n`=?, `usr_escola`=?, `usr_serie`=?, `usr_local`=?, `usr_genero`=? WHERE `usr_id`=?");
-		$update = $up->execute(array($nome,$sobrenome,$data,$escola,$serie,$local,$genero,$vSQL['usr_id']));
-		if($update){
-			header("Location: index.php");
-		}
-	}
-	if($_GET['opcao'] == 'foto'){
-		$foto = $_FILES['foto'];
-		$caminho = "pags_logon/img/";
-		$filename = rand(100,999).$foto['name'];
-		$caminho = $caminho.$filename;
-		
-		if(move_uploaded_file($foto['tmp_name'],$caminho)){
-			$sql = Conect::getConn()->prepare("UPDATE `users` SET `usr_image`=? WHERE `usr_id`=?");
-			$upSQL = $sql->execute(array($filename,$vSQL['usr_id']));
-			
-			if($upSQL){
-				header('Location: index.php');
-				echo "<meta HTTP-EQUIV='refresh' CONTENT='1;URL=index.php'>";
-			}else{
-				echo "<meta HTTP-EQUIV='refresh' CONTENT='1;URL=index.php'>";
-			}
-		}else{
-			return $erro[1];
-		}
-	}
-	
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -85,6 +50,41 @@ if(isset($_SESSION['usr_logado'])){
 		header("Location: login.php");
 		break;
 	}
+}
+
+//Opcoes
+if(isset($_GET['opcao'])){
+	if($_GET['opcao'] == 'att'){
+		$prefix = 'rss_';
+		extract($_POST);
+		
+		$up = Conect::getConn()->prepare("UPDATE `users` SET `usr_nome`=?, `usr_sobrenome`=?, `usr_data_n`=?, `usr_escola`=?, `usr_serie`=?, `usr_local`=?, `usr_genero`=? WHERE `usr_id`=?");
+		$update = $up->execute(array($nome,$sobrenome,$data,$escola,$serie,$local,$genero,$vSQL['usr_id']));
+		if($update){
+			header("Location: index.php");
+		}
+	}
+	if($_GET['opcao'] == 'foto'){
+		$foto = $_FILES['foto'];
+		$caminho = "pags_logon/img/";
+		$filename = rand(100,999).$foto['name'];
+		$caminho = $caminho.$filename;
+		
+		if(move_uploaded_file($foto['tmp_name'], $caminho)){
+			$sql = Conect::getConn()->prepare("UPDATE `users` SET `usr_image` = ? WHERE `usr_id` = ?");
+			$upSQL = $sql->execute(array($filename, $vSQL['usr_id']));
+			
+			if($upSQL){
+				header('Location: index.php');
+				echo "<meta HTTP-EQUIV='refresh' CONTENT='1;URL=index.php'>";
+			}else{
+				echo "<meta HTTP-EQUIV='refresh' CONTENT='1;URL=index.php'>";
+			}
+		}else{
+			//erro
+		}
+	}
+	
 }
 ?>
 

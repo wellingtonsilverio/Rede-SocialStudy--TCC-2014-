@@ -30,19 +30,20 @@ class Medalha{
 			}
 			
 			//Verificar qual medalha
-			if($infosUsr[$qual] < 1){
-				return "";
-			}
-			else if($infosUsr[$qual] < 100){
-				return "<img src='medalha/11.png' title='medalha de bronze em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
-			}
-			else if($infosUsr[$qual] >= 100 && $infosUsr[$qual] < 300){
-				return "<img src='medalha/12.png' title='medalha de prata em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
-			}
-			else if($infosUsr[$qual] >= 300 && $infosUsr[$qual] < 800){
-				return "<img src='medalha/12.png' title='medalha de ouro em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
-			}
-		
+			if($infosUsr[$qual] < 1) return "";
+			else if($infosUsr[$qual] < 100)	return "<img src='medalha/11.png' title='medalhão de bronze em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 100 && $infosUsr[$qual] < 300) return "<img src='medalha/12.png' title='medalhão de prata em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 300 && $infosUsr[$qual] < 800) return "<img src='medalha/13.png' title='medalhão de ouro em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 800 && $infosUsr[$qual] < 1000) return "<img src='medalha/21.png' title='medalhão condecorado de bronze em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 1000 && $infosUsr[$qual] < 2000) return "<img src='medalha/22.png' title='medalhão condecorado de prata em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 2000 && $infosUsr[$qual] < 5000) return "<img src='medalha/23.png' title='medalhão condecorado de ouro em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 5000 && $infosUsr[$qual] < 10000) return "<img src='medalha/31.png' title='medalha de bronze em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 10000 && $infosUsr[$qual] < 30000) return "<img src='medalha/32.png' title='medalha de prata em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 30000 && $infosUsr[$qual] < 50000) return "<img src='medalha/33.png' title='medalha de ouro em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 50000 && $infosUsr[$qual] < 80000) return "<img src='medalha/41.png' title='troféu de bronze em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 80000 && $infosUsr[$qual] < 150000) return "<img src='medalha/42.png' title='troféu de prata em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else if($infosUsr[$qual] >= 150000) return "<img src='medalha/43.png' title='troféu de ouro em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
+			else ;
 		}
 		
 	}

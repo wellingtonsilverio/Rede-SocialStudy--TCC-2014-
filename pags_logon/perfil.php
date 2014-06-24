@@ -88,13 +88,13 @@ onMouseOver="document.getElementById(this.id).src='imagens/partes/config1.png'"
 onMouseOut="document.getElementById(this.id).src='imagens/partes/config.png'">
 </a>
 
-<a href="<?php echo $linkGrup;?>"><img id="seguidores" src="imagens/partes/grupo.png"
+<a href="<?php echo $linkGrup;?>"><img id="grupo" src="imagens/partes/grupo.png"
 title="Grupos"
 onMouseOver="document.getElementById(this.id).src='imagens/partes/grupo1.png'"
 onMouseOut="document.getElementById(this.id).src='imagens/partes/grupo.png'">
 </a>
 
-<a href="<?php echo $linkAmigos;?>"><img id="grupo" src="imagens/partes/seguidores.png"
+<a href="<?php echo $linkAmigos;?>"><img id="seguidores" src="imagens/partes/seguidores.png"
 title="Seguidores"
 onMouseOver="document.getElementById(this.id).src='imagens/partes/seguidores1.png'"
 onMouseOut="document.getElementById(this.id).src='imagens/partes/seguidores.png'"></a>
@@ -106,7 +106,7 @@ onMouseOut="document.getElementById(this.id).src='imagens/partes/perfil.png'"></
 
 </div></div>
 
-<div id="logss"><a href="index.php"><img src="imagens/partes/logo.png"/></a></div>
+<div id="logss"><a href="index.php"><img src="imagens/partes/logo.png" title="SocialStudy: voltar ao inicio."/></a></div>
 
 <!----fim menu topo------>
 

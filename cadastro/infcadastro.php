@@ -26,10 +26,13 @@ if(isset($_POST['email'])){
 			$data = $_POST['ano']."-".$_POST['mes']."-".$_POST['dia']." 03:00:00";
 			$genero = $_POST['genero'];
 			$ref = $_GET['uid'];
-			$cadastro = Conect::getConn()->prepare("INSERT INTO `users` (`usr_nome`, `usr_sobrenome`, `usr_email`, `usr_senha`, `usr_data_n`, `usr_escola`, `usr_serie`, `usr_local`, `usr_genero`, `usr_level`, `usr_image`, `usr_capa`, `usr_ref`, `usr_nivel`, `usr_mdl_perg`, `usr_mdl_resp`, `usr_mdl_mrespos`, `usr_mdl_seg`, `usr_mdl_tempo`, `usr_mdl_grupativ`) VALUES (?, ?, ?, ?, ?, ?, 'padrao.jpg', 'padrao.jpg', ?, '1', ?, ?, ?, '1', '1', '1', '1', '1', '1', '1')");
+			$cadastro = Conect::getConn()->prepare("INSERT INTO `users` (`usr_nome`, `usr_sobrenome`, `usr_email`, `usr_senha`, `usr_data_n`, `usr_escola`, `usr_serie`, `usr_local`, `usr_genero`, `usr_level`, `usr_image`, `usr_capa`, `usr_ref`, `usr_nivel`, `usr_mdl_perg`, `usr_mdl_resp`, `usr_mdl_mrespos`, `usr_mdl_seg`, `usr_mdl_tempo`, `usr_mdl_grupativ`) VALUES (?, ?, ?, ?, ?, ?, ? , ?, ?, '1', 'padrao.jpg', 'padrao.jpg', ?, '1', '1', '1', '1', '1', '1', '1')");
 			if($cadastro->execute(array($nome,$sobrenome,$email,$senha,$data,$escola,$serie,$local,$genero,$ref))){
 				$updateIndicado = Conect::getConn()->prepare("UPDATE `indicacao` SET `idc_status` = '0' WHERE `idc_id` = ?");
-				$updateIndicado->execute(array($iid));
+				if($updateIndicado->execute(array($iid))){
+					$deleteInd = Conect::getConn()->prepare("DELETE FROM `indicacao` WHERE `idc_id` = ?");
+					echo '<meta http-equiv="refresh" content="0;url=http://localhost/rss/cadastro/parabens.php">';
+				}
 				//ir para a pagina de parabens !
 			}
 		}else{
@@ -56,8 +59,8 @@ if(isset($_POST['email'])){
 <form method="post">
 <div id="informacoesConta">
 <div>e-mail: <input type="text" name="email" id="email" /></div>
-<div>senha: <input type="text" name="senha" id="senha" /></div>
-<div>repetir senha: <input type="text" name="ssrsenha" id="ssrsenha" /></div>
+<div>senha: <input name="senha" type="password" id="senha" /></div>
+<div>repetir senha: <input type="password" name="ssrsenha" id="ssrsenha" /></div>
 <div>nome: <input type="text" name="nome" id="nome" /> sobrenome: <input type="text" name="sobrenome" id="sobrenome" /></div>
 <div>data de nacimento: <select id="dia" name="dia">
   <option value="1">1</option>

@@ -37,8 +37,8 @@ VALUES (
 	}
 	//Remover
 	public function remATT($desc,$tipo,$myID){
-		$remATT = Conect::getConn()->prepare("DELETE FROM `refesh` WHERE `att_desc` LIKE ? AND `att_tipo` = ? AND `user_id`=?");
-		$remATT->execute(array("%".$desc."%",$tipo,$myID));
+		$remATT = Conect::getConn()->prepare("DELETE FROM `refesh` WHERE `att_desc` LIKE ? AND `att_tipo` = ? AND `user_id` = ?");
+		$remATT->execute(array($desc,$tipo,$myID));
 		
 		$remExp = Conect::getConn()->prepare("UPDATE `rss`.`users` SET `usr_level` = `usr_level` - '3' WHERE `users`.`usr_id` = ?");
 		$remExp->execute(array($myID));

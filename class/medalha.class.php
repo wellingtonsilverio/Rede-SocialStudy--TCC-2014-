@@ -30,7 +30,7 @@ class Medalha{
 			}
 			
 			//Verificar qual medalha
-			if($infosUsr[$qual] < 1) return "";
+			if($infosUsr[$qual] <= 1) return "";
 			else if($infosUsr[$qual] < 100)	return "<img src='medalha/11.png' title='medalhão de bronze em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
 			else if($infosUsr[$qual] >= 100 && $infosUsr[$qual] < 300) return "<img src='medalha/12.png' title='medalhão de prata em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";
 			else if($infosUsr[$qual] >= 300 && $infosUsr[$qual] < 800) return "<img src='medalha/13.png' title='medalhão de ouro em ".$nomeMedalha." com ".$infosUsr[$qual]." pontos.' id='imgMedalha' />";

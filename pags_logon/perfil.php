@@ -172,6 +172,9 @@ onMouseOut="document.getElementById(this.id).src='imagens/partes/perfil.png'"></
   <tr>
     <td><?php echo $vSQL['usr_serie'];?></td>
   </tr>
+  <tr>
+    <td><?php echo $vSQL['usr_local'];?></td>
+  </tr>
   <?php if($vSQL['usr_nivel'] == 9){
 		echo '<tr>
     <td>Administrador</td>

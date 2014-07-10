@@ -8,7 +8,7 @@ if(isset($_POST['hash'])){
 	$hash = Conect::getConn()->prepare("select * from indicacao where idc_id = ? AND idc_status = '1'");
 	$hash->execute(array($hid));
 	if($hashs = $hash->FETCH(PDO::FETCH_ASSOC)){
-		echo '<meta http-equiv="refresh" content="1;url=http://localhost/rss/cadastro/infcadastro.php?iid='.$hashs['idc_id'].'&amp;uid='.$hashs['idc_usr'].'">';
+		echo '<meta http-equiv="refresh" content="0;url=http://localhost/rss/cadastro/infcadastro.php?iid='.$hashs['idc_id'].'&amp;uid='.$hashs['idc_usr'].'">';
 	}
 }
 

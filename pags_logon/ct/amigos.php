@@ -14,6 +14,7 @@ $veriAmigoQ->execute(array($idMeu));
 
 ?>
 <table border="0" cellspacing="0" cellpadding="0" id="tabela" style="width:1080px; margin:0 auto;">
+	<?php if($veriAmigo->rowCount() > 0){?>
   <tr>
     <td><div align="left">
 <h1>&emsp;<?php echo $vSQL['usr_nome'];?> esta seguindo(<?php echo $veriAmigo->rowCount(); ?>)</h1>
@@ -45,6 +46,8 @@ while($veriAmigos = $veriAmigo->fetch(PDO::FETCH_ASSOC)){
 </div>
 </td>
   </tr>
+  <?php } else echo "<h1>Você não Segue niguem.</h1>"; ?>
+  <?php if($veriAmigoQ->rowCount() > 0){?>
   <tr>
     <td><div align="left">
 <h1>&emsp;Esta seguido <?php echo $vSQL['usr_nome'];?>(<?php echo $veriAmigoQ->rowCount(); ?>)</h1>
@@ -75,4 +78,5 @@ while($veriAmigosQ = $veriAmigoQ->fetch(PDO::FETCH_ASSOC)){
 ?>
 </div></td>
   </tr>
+  <?php } else echo "<h1>Ninguêm segue você.</h1><br />"; ?>
 </table>

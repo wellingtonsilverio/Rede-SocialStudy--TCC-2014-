@@ -20,7 +20,7 @@ if(isset($_SESSION['usr_logado'])){
 </head>
 
 <body>
-<div id="cadasdra"><a href="#"><img src="imagens/partes/cadastro.png"/></a></div>
+<div id="cadasdra"><a href="" onClick="javascript:window.open('cadastro/cadastro.php', 'Cadastro - SocialStudy', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400, height=500,top=10,right=80');"><img src="imagens/partes/cadastro.png"/></a></div>
 
 <div id="login">
 

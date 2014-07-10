@@ -7,9 +7,10 @@ if(isset($_GET['perExcluir'])){
 	$selectResponder->execute(array($pid));
 	while($verResp = $selectResponder->FETCH(PDO::FETCH_ASSOC)){
 		$respUserID = $verResp['res_usr'];
+		$respResp = $verResp['res_resp'];
 		$deletResponder = Conect::getConn()->prepare("DELETE FROM `responder` WHERE `res_id` = ?");
 		if($deletResponder->execute(array($verResp['res_id']))){
-			$obgATT->remATT("Respondeu no grupo ".$infoGrupP['grp_titulo'],4,$respUserID);
+			$obgATT->remATT("Respondeu no grupo ".$infoGrupP['grp_titulo']." sobre: ".$respResp,4,$respUserID);
 			$obgMedalha->ponto($respUserID, 'usr_mdl_resp', -2);
 		}
 	}

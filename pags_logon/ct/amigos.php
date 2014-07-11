@@ -1,7 +1,7 @@
 <?php
 //Verificar se esta logado
 if(!isset($_SESSION['usr_logado'])){
-	header("Location: login.php");
+	echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=login.php'>";
 }
 ?>
 <?php
